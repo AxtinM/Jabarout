@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #a2a2a2;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #f9ecf0;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.side {
+  background: url("https://www.behance.net/gallery/99030159/Social-Media-Market")
+    no-repeat;
+  background-size: 100% 102%;
+}
+
+.side img {
+  width: 50%;
+  max-width: 50%;
+}
+
+.login-container {
+  max-width: 450px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.title2 {
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #c892ff;
+}
+
+.separator {
+  width: 150px;
+  height: 4px;
+  background-color: #c892ff;
+  margin: 24px;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  width: 100%;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  font-size: 1.1em;
+}
+
+input {
+  width: 100%;
+  background: #e6e6e6;
+  color: #333;
+  letter-spacing: 0.5px;
+  padding: 14px 64px;
+}
+
+input ~ i {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  transition: color 0.4s;
+}
+
+input:focus ~ i {
+  color: #c892ff;
+}
+
+button.submit {
+  color: #fff;
+  padding: 14px 64px;
+  margin: 32px auto;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  background-image: linear-gradient(to right, #c892ff, #ebbfcb);
+  cursor: pointer;
+  transition: opacity 0.4s;
+}
+
+button.submit:hover {
+  opacity: 0.9;
+}
+
+.si a {
+  color: #c798a4;
+  font-family: Segoe UI, Semibold;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.si {
+  color: #8d8c8c;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.forgotpass a {
+  color: #c798a4;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.side img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+.alert {
+  color: red;
+  align-self: center;
+}

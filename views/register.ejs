@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/register.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>Register</title>
+  </head>
+  <body>
+    <section class="side">
+      <!-- <img src="/images/imgg.png" alt="" /> -->
+    </section>
+
+    <section class="main">
+      <div class="login-container">
+        <p class="title">jabarout</p>
+        <p class="title2">register</p>
+        <div class="separator"></div>
+
+        <form class="login-form" action="/auth/register" method="POST">
+          <div class="form-control">
+            <input type="text" name="fname" placeholder="First Name" />
+            <i class="fas fa-user"></i>
+          </div>
+
+          <div class="form-control">
+            <input type="text" name="lname" placeholder="Last name" />
+            <i class="fas fa-user"></i>
+          </div>
+
+          <div class="form-control">
+            <input type="email" name="email" placeholder="E-mail" />
+            <i class="fas fa-envelope"></i>
+          </div>
+
+          <div class="form-control">
+            <input type="password" name="password" placeholder="Password" />
+            <i class="fas fa-lock"></i>
+          </div>
+
+          <div class="form-control">
+            <input
+              type="password"
+              name="cpassword"
+              placeholder="Confirm Password"
+            />
+            <i class="fas fa-lock"></i>
+          </div>
+          <% if(typeof error != 'undefined') { %>
+          <div class="alert"><%= error %></div>
+          <% } %>
+          <button class="submit" type="submit">Register</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
