@@ -3,6 +3,11 @@ const app = express();
 const router = require("./routes");
 const mongoose = require("mongoose");
 const Post = require("./models/post.model");
+const { isAuth } = require("./middleware/auth");
+const { redirect } = require("express/lib/response");
+
+require("dotenv").config();
+
 // Database connection
 require("./models/db");
 
@@ -48,10 +53,44 @@ app.post("/posts/add", (req, res) => {
     });
 });
 
+app.get("/posts/edit/:id", async (req, res) => {
+  const post = await Post.findById(req.params.id);
+  es.render("addpost", post.description);
+});
+
+app.post("/posts/edit", (req, res) => {
+  const { description } = req.body;
+  console.log(req.body);
+  const post = new Post({ description: description });
+  post
+    .save()
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 app.get("/posts/delete/:id", async (req, res) => {
   const id = req.params.id;
   await Post.findByIdAndDelete(id);
   res.redirect("/");
+});
+
+router.get("/profile", isAuth, async (req, res) => {
+  const user = req.user;
+  res.render("profile", { user: user });
+});
+
+router.post("/profile/edit", isAuth, async (req, res) => {
+  const user = req.user;
+  const { name, email, username } = req.body;
+  user.fname = name;
+  user.email = email;
+  user.username = username;
+  user.save;
+  res.redirect("/profile");
 });
 
 // setting up app to listen on port 3000

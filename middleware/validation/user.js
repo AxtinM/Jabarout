@@ -59,7 +59,9 @@ exports.loginValidator = [
 ];
 
 exports.userValidation = (req, res, next) => {
+  console.log("hey");
   const result = validationResult(req).array();
+  console.log(result);
   if (!result.length) return next();
   const error = result[0].msg;
   req.error = error;

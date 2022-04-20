@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eidt Profile Page</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css" />
+  </head>
+  <body>
+    <center>
+      <div class="box">
+        <form action="/profile/edit" method="POST">
+          <input type="file" id="file" name="image" />
+          <img src="/images/pfp1.jpeg" width="100%" height="100%" />
+          <label for="file">EDIT PIC</label>
+
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            value="<%=user.fname%>"
+          />
+          <input
+            type="text"
+            placeholder="Email"
+            name="email"
+            value="<%=user.email%>"
+          />
+          <input
+            type="Username"
+            placeholder="Username"
+            name="username"
+            value="<%=user.email%>"
+          />
+          <input type="Website" placeholder="Website" name="" />
+
+          <button style="float: left; margin: 10px 0 0 18.2%">CANCEL</button>
+
+          <button
+            type="submit"
+            name="done"
+            style="float: right; margin: 10px 18.2% 0 0"
+          >
+            DONE
+          </button>
+        </form>
+      </div>
+    </center>
+  </body>
+</html>

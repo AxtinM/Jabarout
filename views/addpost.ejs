@@ -2,17 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>add post</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/edit.css">
+  <title>add post</title>
   </head>
   <body>
     <center>
       <form action="/posts/add" method="POST">
-        <label for="fname">description:</label><br />
-        <textarea id="description" rows="4" name="description"> </textarea>
-        <br />
-        <button type="submit">add post</button>
+        <div class="container">
+          <div class="contact-box">
+            <div class="left"></div>
+            <div class="right">
+              <h2>Add post</h2>
+              <input type="text" class="field" placeholder="Tag people">
+              <input type="text" class="field" placeholder="Add Location">
+              <input type="text" class="field" placeholder="Add Link">
+              <textarea placeholder="Write a caption..." class="field" name="description"></textarea>
+              <button class="btn">Share</button>
+            </div>
+          </div>
       </form>
     </center>
   </body>
