@@ -19,7 +19,6 @@ router.get("/login", (req, res) => {
 
 router.post("/login", loginValidator, userValidation, async (req, res) => {
   try {
-    console.log("first");
     const { email, password } = req.body;
     if (!req.error) {
       const user = await User.findOne({ email });

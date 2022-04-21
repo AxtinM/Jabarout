@@ -18,7 +18,7 @@
         <div class="left"></div>
         <div class="right">
           <h2>Edit post</h2>
-          <form action="">
+          <form action="/posts/edit/<%=post._id%>" method="POST">
             <input type="text" class="field" placeholder="Tag people" />
             <input type="text" class="field" placeholder="Add Location" />
             <input type="text" class="field" placeholder="Add Link" />
@@ -26,8 +26,9 @@
               placeholder="Write a caption..."
               class="field"
               name="description"
-              value="<%=descrption%>"
-            ></textarea>
+            >
+<%=post.description%></textarea
+            >
             <button type="submit" class="btn">Share</button>
           </form>
         </div>

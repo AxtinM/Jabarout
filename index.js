@@ -55,24 +55,18 @@ app.post("/posts/add", (req, res) => {
 
 app.get("/posts/edit/:id", async (req, res) => {
   const post = await Post.findById(req.params.id);
-  es.render("addpost", post.description);
+  res.render("editpost", { post: post });
 });
 
-app.post("/posts/edit", (req, res) => {
+app.post("/posts/edit/:id", isAuth, async (req, res) => {
   const { description } = req.body;
-  console.log(req.body);
-  const post = new Post({ description: description });
-  post
-    .save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  const post = await Post.findById(req.params.id);
+  post.description = description;
+  post.save();
+  res.redirect(`/posts/edit/${req.params.id}`);
 });
 
-app.get("/posts/delete/:id", async (req, res) => {
+app.get("/posts/delete/:id", isAuth, async (req, res) => {
   const id = req.params.id;
   await Post.findByIdAndDelete(id);
   res.redirect("/");
@@ -85,11 +79,13 @@ router.get("/profile", isAuth, async (req, res) => {
 
 router.post("/profile/edit", isAuth, async (req, res) => {
   const user = req.user;
-  const { name, email, username } = req.body;
-  user.fname = name;
+  const { fname, lname, email } = req.body;
+  user.fname = fname;
+  user.lname = lname;
   user.email = email;
-  user.username = username;
-  user.save;
+  console.log(fname);
+  console.log(user);
+  user.save();
   res.redirect("/profile");
 });
 
